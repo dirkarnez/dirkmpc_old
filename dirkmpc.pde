@@ -108,12 +108,32 @@ void draw() {
 //  delay(2000);
 }
 
-void mousePressed() {
-    if (lastPitch > 0) {
-      myBus.sendNoteOff(channel, lastPitch, velocity); // Send a Midi nodeOff
+void keyPressed() {
+  if (lastPitch > 0) {
+    myBus.sendNoteOff(channel, lastPitch, velocity); // Send a Midi nodeOff
+  }
+  
+  if (key==CODED) {
+    println(keyCode);
+  } else {
+    if (key == 'q' || key == 'Q') {
+      myBus.sendNoteOn(channel, 64, velocity); // Send a Midi noteOn
+      lastPitch = 64;
+    } else if (key == 'w' || key == 'W') {
+       myBus.sendNoteOn(channel, 65, velocity); // Send a Midi noteOn
+       lastPitch = 65;
     }
-    delay(1);
-        
+  }
+  delay(1);
+}
+ 
+
+void mousePressed() {
+  if (lastPitch > 0) {
+    myBus.sendNoteOff(channel, lastPitch, velocity); // Send a Midi nodeOff
+  }
+  delay(1);
+      
   float rectSize = width / rectNum;
 
   if (mouseX < rectSize && mouseY < rectSize) {
