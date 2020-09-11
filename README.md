@@ -11,3 +11,6 @@ dirkmpc
 ### How to use
 - Modify `myBus = new MidiBus(this, -1, 3);`
   - Change the output index `3` to the index pointing to `"loopMIDI Port"
+
+### Reference
+- https://github.com/daidaidais/BeatPad
