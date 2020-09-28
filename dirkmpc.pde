@@ -2,6 +2,11 @@ import themidibus.*; //Import the library
 
 MidiBus myBus; // The MidiBus
 
+// https://processing.org/examples/button.html
+// https://www.youtube.com/watch?v=jfM-LAp-tKE&ab_channel=curtis%27schannel
+
+PImage img;
+
 int channel = 1;
 int velocity = 127;
 int lastPitch = 0;
@@ -44,19 +49,22 @@ int lastPitch = 0;
 int rectNum = 4;
 
 void displayRect() {
-  float rectSize = width / rectNum;
+  //float rectSize = width / rectNum;
+  
+  //println("rectNum: ", rectNum, " rectSize: ", rectSize);
 
+  //for (int y = 0; y < height; y += rectSize) {
+  //  for (int x = 0; x < width; x += rectSize) {
+  //    noStroke();
+  //    fill(255 * x / width, 255 * y / height, 255);
+  //    println("R: ", 255 * x / width, " G: ", 255*y / height, " B: 255");
+  //    rect(x, y, rectSize, rectSize);
+  //  }
+  //}
 
-  println("rectNum: ", rectNum, " rectSize: ", rectSize);
-
-  for (int y = 0; y < height; y += rectSize) {
-    for (int x = 0; x < width; x += rectSize) {
-      noStroke();
-      fill(255 * x / width, 255 * y / height, 255);
-      println("R: ", 255 * x / width, " G: ", 255*y / height, " B: 255");
-      rect(x, y, rectSize, rectSize);
-    }
-  }
+  noStroke();
+  fill(0);
+  rect(0, 0, width, height);
 }
 
 void displayText() {
@@ -69,7 +77,9 @@ void displayText() {
 }
 
 void setup() {
-  size(1280, 960);
+  size(1000, 625);
+  
+  img = loadImage("mpc1000.png");
   
   initMidiBus();
   
@@ -106,6 +116,7 @@ void draw() {
 
 // // myBus.sendControllerChange(channel, number, value); // Send a controllerChange
 //  delay(2000);
+  image(img, 0, 0, width, height);
 }
 
 void keyPressed() {
