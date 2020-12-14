@@ -14,6 +14,7 @@ dirkmpc
 
 ### TODO
 - [ ] Group sustain
+- [ ] Old Keyboard
 
 ### Reference
 - https://github.com/daidaidais/BeatPad
